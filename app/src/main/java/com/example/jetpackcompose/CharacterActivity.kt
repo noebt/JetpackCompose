@@ -1,11 +1,13 @@
 package com.example.jetpackcompose
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -56,7 +58,7 @@ class CharacterActivity : ComponentActivity() {
                 contentDescription = "Character Image",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .size(350.dp,250.dp)
+                    .size(350.dp, 250.dp)
             )
 
             Row (
@@ -113,8 +115,15 @@ class CharacterActivity : ComponentActivity() {
                     text = character.casaDeHogwarts,
                     style = MaterialTheme.typography.subtitle1,
                 )
+
             }
 
+            Button(onClick = {
+                val intent = Intent(this@CharacterActivity,MainActivity::class.java)
+                startActivity(intent)
+            }) {
+                Text("Volver")
+            }
         }
     }
 }
